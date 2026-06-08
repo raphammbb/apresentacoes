@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fernando — Planejamento de Reels | Junho 2025</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #08080F;
+    --bg-card: #0F0F1A;
+    --bg-section: #13131F;
+    --border: rgba(255,255,255,0.07);
+    --accent: #6C5CE7;
+    --accent-2: #4ECDC4;
+    --accent-glow: rgba(108,92,231,0.15);
+    --text: #F0EFFF;
+    --text-muted: #8B8AA8;
+    --text-dim: #5C5B7A;
+    --tag-gancho: #E17055;
+    --tag-dev: #6C5CE7;
+    --tag-virada: #4ECDC4;
+    --tag-cta: #FDCB6E;
+    --tag-legenda: #A29BFE;
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 40px 64px;
+    background: linear-gradient(135deg, #0D0C1D 0%, #0A0A15 60%, #080810 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -120px; left: -80px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(108,92,231,0.18) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: -40px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(78,205,196,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .header-inner {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .badge-project {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(108,92,231,0.12);
+    border: 1px solid rgba(108,92,231,0.3);
+    color: #A29BFE;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 32px;
+  }
+  .badge-project svg { width: 14px; height: 14px; }
+  .header h1 {
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 12px;
+  }
+  .header h1 span { color: var(--accent); }
+  .header .subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 100px;
+  }
+  .meta-chip strong { color: var(--text); }
+
+  /* ── TIMELINE BAR ── */
+  .timeline-bar {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 0;
+  }
+  .timeline-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+  .timeline-track {
+    display: flex;
+    gap: 0;
+    border-radius: 100px;
+    overflow: hidden;
+    height: 6px;
+    background: rgba(255,255,255,0.06);
+  }
+  .timeline-segment {
+    flex: 1;
+    background: var(--accent);
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+  .timeline-segment:nth-child(odd) { background: var(--accent-2); }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 40px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* ── REEL CARD ── */
+  .reel-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .reel-card:hover {
+    border-color: rgba(108,92,231,0.3);
+    box-shadow: 0 0 40px rgba(108,92,231,0.08);
+  }
+
+  .reel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 28px 32px 24px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .reel-num-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .reel-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(108,92,231,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #A29BFE;
+    flex-shrink: 0;
+  }
+  .reel-title-block {}
+  .reel-day-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+  }
+  .reel-title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text);
+    font-style: italic;
+  }
+  .reel-date-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(78,205,196,0.08);
+    border: 1px solid rgba(78,205,196,0.2);
+    color: var(--accent-2);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .reel-date-badge svg { width: 13px; height: 13px; }
+
+  /* ── ROTEIRO ── */
+  .roteiro-block {
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .block-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .block-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .roteiro-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .roteiro-section {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .section-tag {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 6px;
+    min-width: 100px;
+    text-align: center;
+    margin-top: 2px;
+  }
+  .section-tag.gancho { background: rgba(225,112,85,0.12); color: var(--tag-gancho); border: 1px solid rgba(225,112,85,0.2); }
+  .section-tag.desenvolvimento { background: rgba(108,92,231,0.12); color: var(--tag-dev); border: 1px solid rgba(108,92,231,0.2); }
+  .section-tag.virada { background: rgba(78,205,196,0.1); color: var(--tag-virada); border: 1px solid rgba(78,205,196,0.2); }
+  .section-tag.cta { background: rgba(253,203,110,0.1); color: var(--tag-cta); border: 1px solid rgba(253,203,110,0.2); }
+
+  .section-time {
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-dim);
+    margin-top: 4px;
+    min-width: 60px;
+  }
+  .section-text {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+  .section-text p + p { margin-top: 10px; }
+
+  /* ── LEGENDA ── */
+  .legenda-block {
+    padding: 28px 32px;
+  }
+  .legenda-text {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.85;
+    white-space: pre-line;
+    margin-bottom: 20px;
+  }
+  .hashtags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .hashtag {
+    font-size: 12px;
+    font-weight: 500;
+    color: #A29BFE;
+    background: rgba(162,155,254,0.08);
+    border: 1px solid rgba(162,155,254,0.15);
+    padding: 4px 12px;
+    border-radius: 100px;
+    cursor: default;
+  }
+
+  /* ── RESERVA ── */
+  .reserva-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+  }
+  .reserva-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .reserva-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .reserva-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .reserva-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.025);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+  }
+  .reserva-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-dim);
+    min-width: 28px;
+  }
+  .reserva-text {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 32px 40px 48px;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 13px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .header { padding: 48px 20px 40px; }
+    .main { padding: 32px 20px 60px; }
+    .timeline-bar { padding: 32px 20px 0; }
+    .reel-header { padding: 20px; }
+    .roteiro-block { padding: 20px; }
+    .legenda-block { padding: 20px; }
+    .reserva-card { padding: 20px; }
+    .roteiro-section { flex-direction: column; gap: 8px; }
+    .section-tag { min-width: unset; width: fit-content; }
+    .section-time { margin-top: 0; }
+    .reel-header { flex-direction: column; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="badge-project">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87V15.13a1 1 0 01-1.447.9L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+      Planejamento de Conteúdo
+    </div>
+    <h1>Fernando<span> — CTO</span></h1>
+    <p class="subtitle">Roteiros + Legendas — 6 Reels · 2 Semanas · Junho 2025</p>
+    <div class="meta-row">
+      <span class="meta-chip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <strong>09–20 Jun 2025</strong>
+      </span>
+      <span class="meta-chip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        <strong>6 Reels</strong> produzidos
+      </span>
+      <span class="meta-chip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        Seg · Qua · Sex
+      </span>
+      <span class="meta-chip">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        IA · Automação · Liderança
+      </span>
+    </div>
+  </div>
+</header>
+
+<div class="timeline-bar">
+  <div class="timeline-label">Cronograma de publicação</div>
+  <div class="timeline-track">
+    <div class="timeline-segment"></div>
+    <div class="timeline-segment"></div>
+    <div class="timeline-segment"></div>
+    <div class="timeline-segment"></div>
+    <div class="timeline-segment"></div>
+    <div class="timeline-segment"></div>
+  </div>
+</div>
+
+<main class="main">
+
+  <!-- REEL 1 -->
+  <article class="reel-card">
+    <div class="reel-header">
+      <div class="reel-num-block">
+        <div class="reel-number">1</div>
+        <div class="reel-title-block">
+          <div class="reel-day-label">Seg, 9 de Junho</div>
+          <div class="reel-title">"IA não substitui engenheiro. Substitui engenheiro que não usa IA."</div>
+        </div>
+      </div>
+      <span class="reel-date-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        60 seg
+      </span>
+    </div>
+    <div class="roteiro-block">
+      <div class="block-title">Roteiro</div>
+      <div class="roteiro-sections">
+        <div class="roteiro-section">
+          <span class="section-tag gancho">Gancho</span>
+          <span class="section-time">0–3s</span>
+          <div class="section-text">"IA não vai tomar o seu emprego. Mas alguém que usa IA vai."</div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag desenvolvimento">Desenvolvimento</span>
+          <span class="section-time">3–40s</span>
+          <div class="section-text">
+            <p>"Eu vejo dois tipos de engenheiro hoje. O primeiro fica esperando a IA ficar boa o suficiente pra ele confiar. O segundo já tá usando pra revisar código, escrever documentação, mapear dependências, antecipar bug antes de chegar em produção."</p>
+            <p>"Esses dois caras têm o mesmo salário hoje. Daqui a dois anos, não vão ter."</p>
+            <p>"Não tô falando de substituição. Tô falando de alavancagem. O engenheiro que usa IA entrega mais, em menos tempo, com menos retrabalho. E aí a pergunta que o mercado vai fazer é: por que eu vou pagar o mesmo pelos dois?"</p>
+          </div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag virada">Virada</span>
+          <span class="section-time">40–50s</span>
+          <div class="section-text">"A IA não é seu concorrente. Ela é sua vantagem competitiva — se você souber usar."</div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag cta">CTA</span>
+          <span class="section-time">50–60s</span>
+          <div class="section-text">"Me conta nos comentários: você já usa IA no seu fluxo de trabalho? Ou ainda tá no modo espera?"</div>
+        </div>
+      </div>
+    </div>
+    <div class="legenda-block">
+      <div class="block-title">Legenda</div>
+      <div class="legenda-text">IA não vai tomar o seu emprego.
+
+Mas alguém que usa IA vai.
+
+Hoje existem dois tipos de engenheiro: o que espera a IA ficar boa o suficiente pra confiar, e o que já usa pra revisar código, documentar, antecipar bug, ganhar velocidade.
+
+Esses dois têm o mesmo salário agora. Daqui a dois anos, não vão ter.
+
+Não é sobre substituição. É sobre alavancagem.
+
+O engenheiro que usa IA entrega mais, em menos tempo, com menos retrabalho. E o mercado vai perceber isso.
+
+A IA não é seu concorrente. É sua vantagem competitiva — se você souber usar.
+
+Você já usa IA no seu fluxo de trabalho? Me conta nos comentários.</div>
+      <div class="hashtags">
+        <span class="hashtag">#IA</span><span class="hashtag">#InteligenciaArtificial</span><span class="hashtag">#Engenharia</span><span class="hashtag">#CarreiraEmTech</span><span class="hashtag">#CTO</span><span class="hashtag">#Tecnologia</span><span class="hashtag">#Desenvolvimento</span><span class="hashtag">#Lideranca</span><span class="hashtag">#FuturoDoTrabalho</span><span class="hashtag">#Automacao</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- REEL 2 -->
+  <article class="reel-card">
+    <div class="reel-header">
+      <div class="reel-num-block">
+        <div class="reel-number">2</div>
+        <div class="reel-title-block">
+          <div class="reel-day-label">Qua, 11 de Junho</div>
+          <div class="reel-title">"O erro clássico de quem começa a automatizar processos"</div>
+        </div>
+      </div>
+      <span class="reel-date-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        60 seg
+      </span>
+    </div>
+    <div class="roteiro-block">
+      <div class="block-title">Roteiro</div>
+      <div class="roteiro-sections">
+        <div class="roteiro-section">
+          <span class="section-tag gancho">Gancho</span>
+          <span class="section-time">0–3s</span>
+          <div class="section-text">"Eu já cometi esse erro. E já vi equipe inteira cometer. É mais comum do que parece."</div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag desenvolvimento">Desenvolvimento</span>
+          <span class="section-time">3–40s</span>
+          <div class="section-text">
+            <p>"Quando a galera decide automatizar, o instinto é: vamos pegar o processo mais chato e tirar ele da frente. Faz sentido, né? Só que esse processo chato muitas vezes é chato por um motivo. Tem exceção, tem regra de negócio escondida, tem um caso específico que todo mundo conhece mas ninguém documentou."</p>
+            <p>"Aí você automatiza. E o processo fica rápido. Mas fica errado. E fica errado em escala."</p>
+            <p>"O erro clássico é automatizar antes de entender. Antes de mapear cada variação, cada exceção, cada ponto de decisão humana que tá acontecendo ali."</p>
+          </div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag virada">Virada</span>
+          <span class="section-time">40–50s</span>
+          <div class="section-text">"A regra que aprendi na prática: você só tá pronto pra automatizar um processo quando consegue explicar ele por escrito, sem deixar lacuna nenhuma." "Se você não consegue documentar, você não consegue automatizar. Você vai só acelerar o problema."</div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag cta">CTA</span>
+          <span class="section-time">50–60s</span>
+          <div class="section-text">"Já passou por isso? Qual processo você tentou automatizar e virou dor de cabeça? Me conta aqui."</div>
+        </div>
+      </div>
+    </div>
+    <div class="legenda-block">
+      <div class="block-title">Legenda</div>
+      <div class="legenda-text">O erro mais comum de quem começa a automatizar: pegar o processo mais chato e tirar logo da frente.
+
+O problema é que processo chato costuma ser chato por um motivo.
+
+Tem exceção. Tem regra de negócio escondida. Tem um caso específico que todo mundo conhece mas ninguém nunca escreveu em lugar nenhum.
+
+Aí você automatiza. E o processo fica rápido. Mas fica errado. Em escala.
+
+A regra que aprendi na prática: você só tá pronto pra automatizar quando consegue documentar cada variação, cada exceção, cada ponto de decisão — sem deixar lacuna.
+
+Se você não consegue documentar, você não tá automatizando. Você tá só acelerando o problema.
+
+Já passou por isso? Qual processo virou dor de cabeça depois de automatizar? Me conta aqui.</div>
+      <div class="hashtags">
+        <span class="hashtag">#Automacao</span><span class="hashtag">#Processos</span><span class="hashtag">#GestaoTech</span><span class="hashtag">#CTO</span><span class="hashtag">#Tecnologia</span><span class="hashtag">#Lideranca</span><span class="hashtag">#IA</span><span class="hashtag">#ProductManagement</span><span class="hashtag">#Engenharia</span><span class="hashtag">#GestaoDeEquipes</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- REEL 3 -->
+  <article class="reel-card">
+    <div class="reel-header">
+      <div class="reel-num-block">
+        <div class="reel-number">3</div>
+        <div class="reel-title-block">
+          <div class="reel-day-label">Sex, 13 de Junho</div>
+          <div class="reel-title">"Por que a maioria das empresas vai errar na adoção de IA"</div>
+        </div>
+      </div>
+      <span class="reel-date-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        60 seg
+      </span>
+    </div>
+    <div class="roteiro-block">
+      <div class="block-title">Roteiro</div>
+      <div class="roteiro-sections">
+        <div class="roteiro-section">
+          <span class="section-tag gancho">Gancho</span>
+          <span class="section-time">0–3s</span>
+          <div class="section-text">"A maioria das empresas vai investir em IA e não ver resultado nenhum. E o motivo não é tecnologia."</div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag desenvolvimento">Desenvolvimento</span>
+          <span class="section-time">3–40s</span>
+          <div class="section-text">
+            <p>"O erro começa na pergunta errada. A empresa pergunta: 'que ferramenta de IA a gente compra?' Quando a pergunta certa é: 'qual problema a gente tá tentando resolver?'"</p>
+            <p>"Aí ela compra uma plataforma, conecta nos sistemas, faz um piloto bonito pra apresentar pra diretoria. E seis meses depois, ninguém usa."</p>
+            <p>"Por quê? Porque IA não transforma empresa. Empresa transforma empresa. A IA é só a ferramenta. Se o processo é ruim, se o time não foi treinado, se a liderança não mudou a forma de operar — a IA vai só deixar o problema mais rápido."</p>
+          </div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag virada">Virada</span>
+          <span class="section-time">40–50s</span>
+          <div class="section-text">"As empresas que estão ganhando com IA não são as que compraram mais ferramenta. São as que fizeram as perguntas certas antes de comprar qualquer coisa."</div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag cta">CTA</span>
+          <span class="section-time">50–60s</span>
+          <div class="section-text">"Você tá dentro de uma empresa que tá adotando IA do jeito certo ou do jeito errado? Me conta aqui."</div>
+        </div>
+      </div>
+    </div>
+    <div class="legenda-block">
+      <div class="block-title">Legenda</div>
+      <div class="legenda-text">A maioria das empresas vai investir em IA e não ver resultado.
+
+E o motivo não é a tecnologia.
+
+O erro começa na pergunta errada: "que ferramenta a gente compra?" Em vez de "qual problema a gente quer resolver?"
+
+Aí compram plataforma, conectam nos sistemas, fazem um piloto bonito pro board. Seis meses depois, ninguém usa.
+
+Porque IA não transforma empresa. Empresa transforma empresa.
+
+Se o processo é ruim, se o time não foi preparado, se a liderança não mudou a forma de operar — a IA só vai deixar o problema mais rápido.
+
+As empresas que estão ganhando com IA não são as que compraram mais. São as que perguntaram melhor antes de comprar.
+
+Sua empresa tá adotando IA do jeito certo ou do jeito errado? Me conta aqui.</div>
+      <div class="hashtags">
+        <span class="hashtag">#IA</span><span class="hashtag">#InteligenciaArtificial</span><span class="hashtag">#Transformacao</span><span class="hashtag">#EstrategiaDigital</span><span class="hashtag">#CTO</span><span class="hashtag">#Tecnologia</span><span class="hashtag">#Lideranca</span><span class="hashtag">#InovacaoEmpresarial</span><span class="hashtag">#FuturoDoTrabalho</span><span class="hashtag">#Gestao</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- REEL 4 -->
+  <article class="reel-card">
+    <div class="reel-header">
+      <div class="reel-num-block">
+        <div class="reel-number">4</div>
+        <div class="reel-title-block">
+          <div class="reel-day-label">Seg, 16 de Junho</div>
+          <div class="reel-title">"Como eu delego tarefas repetitivas pra IA e foco no que importa"</div>
+        </div>
+      </div>
+      <span class="reel-date-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        60 seg
+      </span>
+    </div>
+    <div class="roteiro-block">
+      <div class="block-title">Roteiro</div>
+      <div class="roteiro-sections">
+        <div class="roteiro-section">
+          <span class="section-tag gancho">Gancho</span>
+          <span class="section-time">0–3s</span>
+          <div class="section-text">"Tem coisa que eu parei de fazer completamente. E foi isso que abriu espaço pra eu pensar de verdade."</div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag desenvolvimento">Desenvolvimento</span>
+          <span class="section-time">3–45s</span>
+          <div class="section-text">
+            <p>"CTO tem um problema de atenção. Não falta coisa pra fazer — falta tempo pra fazer o que só você pode fazer."</p>
+            <p>"Então eu comecei a mapear o que me tomava tempo que não exigia julgamento. Resumo de reunião, rascunho de documento técnico, levantamento inicial de uma pesquisa, revisão de consistência em texto. Tudo isso hoje vai pra IA primeiro."</p>
+            <p>"Não é delegação cega. Eu reviso, ajusto, aprovo. Mas o ponto de partida não sou mais eu. E isso muda tudo — porque o meu trabalho começa onde o rascunho acabou, não do zero."</p>
+            <p>"Hoje eu uso IA pra preparar contexto antes de decisão, pra estruturar raciocínio antes de reunião, pra antecipar pergunta antes de apresentação."</p>
+          </div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag virada">Virada</span>
+          <span class="section-time">45–55s</span>
+          <div class="section-text">"Não é sobre ser preguiçoso. É sobre saber onde o meu tempo vale mais."</div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag cta">CTA</span>
+          <span class="section-time">55–60s</span>
+          <div class="section-text">"Qual tarefa repetitiva você ainda faz na mão que dava pra delegar pra IA? Me conta aqui."</div>
+        </div>
+      </div>
+    </div>
+    <div class="legenda-block">
+      <div class="block-title">Legenda</div>
+      <div class="legenda-text">Tem coisa que eu parei de fazer completamente. E foi isso que abriu espaço pra pensar de verdade.
+
+CTO não tem problema de volume. Tem problema de atenção.
+
+Então comecei a mapear o que me tomava tempo sem exigir julgamento meu: resumo de reunião, rascunho de documento técnico, levantamento inicial de pesquisa, revisão de consistência.
+
+Tudo isso vai pra IA primeiro agora.
+
+Não é delegação cega — eu reviso, ajusto, aprovo. Mas o ponto de partida não sou mais eu. E isso muda tudo: meu trabalho começa onde o rascunho acabou, não do zero.
+
+Hoje uso IA pra preparar contexto antes de decisão, estruturar raciocínio antes de reunião, antecipar pergunta antes de apresentação.
+
+Não é preguiça. É saber onde o meu tempo vale mais.
+
+Qual tarefa repetitiva você ainda faz na mão que dava pra delegar? Me conta aqui.</div>
+      <div class="hashtags">
+        <span class="hashtag">#Produtividade</span><span class="hashtag">#IA</span><span class="hashtag">#GestaoDoTempo</span><span class="hashtag">#CTO</span><span class="hashtag">#Lideranca</span><span class="hashtag">#Tecnologia</span><span class="hashtag">#Automacao</span><span class="hashtag">#InteligenciaArtificial</span><span class="hashtag">#FocoProfissional</span><span class="hashtag">#TrabalhoEstrategico</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- REEL 5 -->
+  <article class="reel-card">
+    <div class="reel-header">
+      <div class="reel-num-block">
+        <div class="reel-number">5</div>
+        <div class="reel-title-block">
+          <div class="reel-day-label">Qua, 18 de Junho</div>
+          <div class="reel-title">"Como construir uma cultura de IA no time sem forçar adoção"</div>
+        </div>
+      </div>
+      <span class="reel-date-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        60 seg
+      </span>
+    </div>
+    <div class="roteiro-block">
+      <div class="block-title">Roteiro</div>
+      <div class="roteiro-sections">
+        <div class="roteiro-section">
+          <span class="section-tag gancho">Gancho</span>
+          <span class="section-time">0–3s</span>
+          <div class="section-text">"Se você precisa forçar seu time a usar IA, você tá fazendo do jeito errado."</div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag desenvolvimento">Desenvolvimento</span>
+          <span class="section-time">3–45s</span>
+          <div class="section-text">
+            <p>"Liderança que força ferramenta gera resistência. E resistência gera uso superficial — o cara usa porque tem que usar, não porque viu valor."</p>
+            <p>"O que funcionou pra mim foi diferente. Primeiro, eu comecei a usar na frente do time. Não em apresentação, não em treinamento — no trabalho real. 'Olha, eu resolvi isso aqui com IA em dez minutos. Antes levava duas horas.'"</p>
+            <p>"Segundo, eu criei espaço pra experimentação sem cobrança de resultado. A pessoa podia testar, errar, descartar. Sem pressão de virar case de sucesso."</p>
+            <p>"Terceiro — e esse foi o mais importante — eu comecei a reconhecer quem usava bem. Não quem usava mais. Quem usava com critério, com resultado, com senso crítico."</p>
+          </div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag virada">Virada</span>
+          <span class="section-time">45–55s</span>
+          <div class="section-text">"Cultura não se implanta. Cultura se demonstra. Você tem que ser o primeiro exemplo do comportamento que quer ver no time."</div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag cta">CTA</span>
+          <span class="section-time">55–60s</span>
+          <div class="section-text">"Seu time já adotou IA de forma natural ou ainda tá resistindo? Me conta como tá esse processo aí."</div>
+        </div>
+      </div>
+    </div>
+    <div class="legenda-block">
+      <div class="block-title">Legenda</div>
+      <div class="legenda-text">Se você precisa forçar seu time a usar IA, você tá fazendo do jeito errado.
+
+Liderança que força ferramenta gera resistência. E resistência gera uso superficial — o cara usa porque tem que usar, não porque viu valor.
+
+O que funcionou pra mim foi diferente. Três coisas:
+
+1. Eu comecei a usar na frente do time — não em treinamento, no trabalho real. "Resolvi isso com IA em 10 minutos. Antes levava 2 horas."
+
+2. Criei espaço pra experimentação sem cobrança de resultado. Testar, errar, descartar. Sem pressão de virar case de sucesso.
+
+3. Passei a reconhecer quem usava bem. Não quem usava mais — quem usava com critério, resultado e senso crítico.
+
+Cultura não se implanta. Cultura se demonstra.
+
+Você tem que ser o primeiro exemplo do comportamento que quer ver.
+
+Seu time já adotou IA de forma natural ou ainda tá resistindo? Me conta.</div>
+      <div class="hashtags">
+        <span class="hashtag">#LiderancaTecnica</span><span class="hashtag">#CulturaDeInovacao</span><span class="hashtag">#IA</span><span class="hashtag">#GestaoDeEquipes</span><span class="hashtag">#CTO</span><span class="hashtag">#Tecnologia</span><span class="hashtag">#Lideranca</span><span class="hashtag">#InteligenciaArtificial</span><span class="hashtag">#TimeDeTech</span><span class="hashtag">#TransformacaoDigital</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- REEL 6 -->
+  <article class="reel-card">
+    <div class="reel-header">
+      <div class="reel-num-block">
+        <div class="reel-number">6</div>
+        <div class="reel-title-block">
+          <div class="reel-day-label">Sex, 20 de Junho</div>
+          <div class="reel-title">"Como manter qualidade quando o time começa a depender de IA"</div>
+        </div>
+      </div>
+      <span class="reel-date-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        60 seg
+      </span>
+    </div>
+    <div class="roteiro-block">
+      <div class="block-title">Roteiro</div>
+      <div class="roteiro-sections">
+        <div class="roteiro-section">
+          <span class="section-tag gancho">Gancho</span>
+          <span class="section-time">0–3s</span>
+          <div class="section-text">"IA aumenta velocidade. Mas velocidade sem critério aumenta o erro na mesma proporção."</div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag desenvolvimento">Desenvolvimento</span>
+          <span class="section-time">3–45s</span>
+          <div class="section-text">
+            <p>"Quando o time começa a usar IA de verdade, aparece um problema novo: o código sai mais rápido, o texto sai mais rápido, a análise sai mais rápida. E aí vem a tentação de revisar menos."</p>
+            <p>"Eu vi isso acontecer. O time começou a confiar demais no output da IA. Não porque eram descuidados — porque o resultado parecia bom. E IA é boa em parecer boa."</p>
+            <p>"O que a gente fez: separamos revisão de velocidade. A IA pode acelerar a produção, mas o processo de revisão não ficou mais curto. Se antes levava duas horas pra escrever e trinta minutos pra revisar, agora leva dez minutos pra escrever e os mesmos trinta pra revisar. O ganho de tempo é real, mas o critério não diminuiu."</p>
+          </div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag virada">Virada</span>
+          <span class="section-time">45–55s</span>
+          <div class="section-text">"IA não substitui o seu olho crítico. Ela libera tempo pra você usar ele com mais frequência, em mais coisas."</div>
+        </div>
+        <div class="roteiro-section">
+          <span class="section-tag cta">CTA</span>
+          <span class="section-time">55–60s</span>
+          <div class="section-text">"Você já enfrentou queda de qualidade depois de adotar IA no time? Como você resolveu? Me conta aqui."</div>
+        </div>
+      </div>
+    </div>
+    <div class="legenda-block">
+      <div class="block-title">Legenda</div>
+      <div class="legenda-text">IA aumenta velocidade. Mas velocidade sem critério aumenta o erro na mesma proporção.
+
+Quando o time começa a usar IA de verdade, aparece um problema novo: tudo sai mais rápido. E aí vem a tentação de revisar menos.
+
+Vi isso acontecer. O time passou a confiar demais no output — não por descuido, mas porque o resultado parecia bom.
+
+E IA é muito boa em parecer boa.
+
+O que funcionou: separar revisão de velocidade.
+
+A IA pode acelerar a produção, mas o processo de revisão não ficou mais curto. Antes: 2h pra escrever + 30min pra revisar. Agora: 10min pra escrever + os mesmos 30min pra revisar.
+
+O ganho de tempo é real. O critério não diminuiu.
+
+IA não substitui seu olho crítico. Ela libera tempo pra você usar ele com mais frequência, em mais coisas.
+
+Você já enfrentou queda de qualidade depois de adotar IA no time? Como resolveu? Me conta aqui.</div>
+      <div class="hashtags">
+        <span class="hashtag">#QualidadeEmTech</span><span class="hashtag">#IA</span><span class="hashtag">#GestaoDeEquipes</span><span class="hashtag">#CTO</span><span class="hashtag">#Tecnologia</span><span class="hashtag">#Lideranca</span><span class="hashtag">#InteligenciaArtificial</span><span class="hashtag">#Engenharia</span><span class="hashtag">#TimeDeTech</span><span class="hashtag">#BoasPraticas</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- RESERVA -->
+  <div class="reserva-card">
+    <div class="reserva-title">Backlog — Semana 3 (3 ideias prontas)</div>
+    <div class="reserva-list">
+      <div class="reserva-item">
+        <span class="reserva-num">#3</span>
+        <span class="reserva-text">O que o ChatGPT não consegue fazer que meu time ainda faz melhor</span>
+      </div>
+      <div class="reserva-item">
+        <span class="reserva-num">#4</span>
+        <span class="reserva-text">Como montar um fluxo de automação sem contratar mais ninguém</span>
+      </div>
+      <div class="reserva-item">
+        <span class="reserva-num">#12</span>
+        <span class="reserva-text">A habilidade que nenhuma faculdade de tech ensina</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  Fernando — CTO · Planejamento de Reels · Junho 2025 · 6 conteúdos · Seg / Qua / Sex
+</footer>
+
+</body>
+</html>
