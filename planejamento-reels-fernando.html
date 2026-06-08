@@ -340,6 +340,31 @@
     cursor: default;
   }
 
+  /* ── GRAVADO ── */
+  .reel-card.gravado {
+    border-color: rgba(0,214,143,0.25);
+  }
+  .reel-card.gravado:hover {
+    border-color: rgba(0,214,143,0.4);
+    box-shadow: 0 0 40px rgba(0,214,143,0.07);
+  }
+  .badge-gravado {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0,214,143,0.1);
+    border: 1px solid rgba(0,214,143,0.3);
+    color: #00D68F;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+  .badge-gravado svg { width: 12px; height: 12px; }
+
   /* ── RESERVA ── */
   .reserva-card {
     background: var(--bg-card);
@@ -471,7 +496,7 @@
 <main class="main">
 
   <!-- REEL 1 -->
-  <article class="reel-card">
+  <article class="reel-card gravado">
     <div class="reel-header">
       <div class="reel-num-block">
         <div class="reel-number">1</div>
@@ -480,10 +505,16 @@
           <div class="reel-title">"IA não substitui engenheiro. Substitui engenheiro que não usa IA."</div>
         </div>
       </div>
-      <span class="reel-date-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        60 seg
-      </span>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;">
+        <span class="badge-gravado">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Gravado
+        </span>
+        <span class="reel-date-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          60 seg
+        </span>
+      </div>
     </div>
     <div class="roteiro-block">
       <div class="block-title">Roteiro</div>
@@ -530,7 +561,7 @@ Você já usa IA no seu fluxo de trabalho ou ainda tá no modo espera?</div>
   </article>
 
   <!-- REEL 2 -->
-  <article class="reel-card">
+  <article class="reel-card gravado">
     <div class="reel-header">
       <div class="reel-num-block">
         <div class="reel-number">2</div>
@@ -539,10 +570,16 @@ Você já usa IA no seu fluxo de trabalho ou ainda tá no modo espera?</div>
           <div class="reel-title">"O erro clássico de quem começa a automatizar processos"</div>
         </div>
       </div>
-      <span class="reel-date-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        60 seg
-      </span>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;">
+        <span class="badge-gravado">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Gravado
+        </span>
+        <span class="reel-date-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          60 seg
+        </span>
+      </div>
     </div>
     <div class="roteiro-block">
       <div class="block-title">Roteiro</div>
@@ -591,7 +628,7 @@ Qual processo você tentou automatizar e virou dor de cabeça? Me conta aqui.</d
   </article>
 
   <!-- REEL 3 -->
-  <article class="reel-card">
+  <article class="reel-card gravado">
     <div class="reel-header">
       <div class="reel-num-block">
         <div class="reel-number">3</div>
@@ -600,10 +637,16 @@ Qual processo você tentou automatizar e virou dor de cabeça? Me conta aqui.</d
           <div class="reel-title">"Por que a maioria das empresas vai errar na adoção de IA"</div>
         </div>
       </div>
-      <span class="reel-date-badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-        60 seg
-      </span>
+      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end;">
+        <span class="badge-gravado">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Gravado
+        </span>
+        <span class="reel-date-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          60 seg
+        </span>
+      </div>
     </div>
     <div class="roteiro-block">
       <div class="block-title">Roteiro</div>
