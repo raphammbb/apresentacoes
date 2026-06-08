@@ -250,6 +250,26 @@
     height: 1px;
     background: var(--border);
   }
+  .copy-btn {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    order: -1;
+  }
+  .copy-btn svg { width: 12px; height: 12px; flex-shrink: 0; }
+  .copy-btn:hover { background: rgba(108,92,231,0.12); border-color: rgba(108,92,231,0.3); color: #A29BFE; }
+  .copy-btn.copied { background: rgba(78,205,196,0.1); border-color: rgba(78,205,196,0.3); color: var(--accent-2); }
 
   .roteiro-sections {
     display: flex;
@@ -878,5 +898,53 @@ Você já enfrentou queda de qualidade depois de adotar IA no time? Como resolve
   Fernando — CTO · Planejamento de Reels · Junho 2025 · 6 conteúdos · Seg / Qua / Sex
 </footer>
 
+<script>
+const COPY_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>`;
+const CHECK_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>`;
+
+function makeBtn() {
+  const btn = document.createElement('button');
+  btn.className = 'copy-btn';
+  btn.innerHTML = COPY_ICON + 'Copiar';
+  return btn;
+}
+
+function flash(btn) {
+  btn.innerHTML = CHECK_ICON + 'Copiado!';
+  btn.classList.add('copied');
+  setTimeout(() => { btn.innerHTML = COPY_ICON + 'Copiar'; btn.classList.remove('copied'); }, 2000);
+}
+
+function copyText(text) {
+  navigator.clipboard ? navigator.clipboard.writeText(text) : (()=>{ const t=document.createElement('textarea'); t.value=text; document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t); })();
+}
+
+document.querySelectorAll('.roteiro-block').forEach(block => {
+  const btn = makeBtn();
+  block.querySelector('.block-title').prepend(btn);
+  btn.addEventListener('click', () => {
+    const lines = [];
+    block.querySelectorAll('.roteiro-section').forEach(sec => {
+      const tag = sec.querySelector('.section-tag').innerText.trim();
+      const time = sec.querySelector('.section-time').innerText.trim();
+      const text = sec.querySelector('.section-text').innerText.trim();
+      lines.push(`[${tag} — ${time}]\n${text}`);
+    });
+    copyText(lines.join('\n\n'));
+    flash(btn);
+  });
+});
+
+document.querySelectorAll('.legenda-block').forEach(block => {
+  const btn = makeBtn();
+  block.querySelector('.block-title').prepend(btn);
+  btn.addEventListener('click', () => {
+    const body = block.querySelector('.legenda-text').innerText.trim();
+    const tags = [...block.querySelectorAll('.hashtag')].map(h => h.innerText.trim()).join(' ');
+    copyText(body + '\n\n' + tags);
+    flash(btn);
+  });
+});
+</script>
 </body>
 </html>
