@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EP 02 — Por que seu Conteúdo não Gera Cliente | 1 Minuto de Aula</title>
+<title>EP 02 — Conteúdo que não Gera Cliente | 1 Minuto de Aula</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
   :root {
@@ -12,6 +12,7 @@
     --p2:     #a78bfa;
     --pglow:  rgba(91,63,248,0.12);
     --green:  #4ADE80;
+    --yellow: #FBBF24;
     --red:    #F87171;
     --white:  #F4F4F5;
     --muted:  #71717A;
@@ -24,124 +25,35 @@
   .slide {
     position: fixed; inset: 0;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 60px 80px 100px; gap: 0;
+    padding: 60px 80px 100px;
     opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
   }
   .slide.active { opacity: 1; pointer-events: auto; }
 
-  /* ══════════════════════════════
-     SLIDE 1 — CAPA
-  ══════════════════════════════ */
+  /* ── S1 CAPA (fixo) ── */
   .s1 {
     background:
       radial-gradient(ellipse 70% 60% at 50% 40%, rgba(91,63,248,0.22) 0%, transparent 70%),
       radial-gradient(ellipse 40% 50% at 75% 70%, rgba(74,222,128,0.06) 0%, transparent 60%),
       var(--bg);
-    text-align: center;
+    text-align: center; gap: 0;
   }
-  .s1-badge {
+  .ep-badge {
     font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--p2); background: var(--pglow); border: 1px solid rgba(91,63,248,0.35);
-    padding: 6px 20px; border-radius: 20px; margin-bottom: 36px;
+    padding: 6px 20px; border-radius: 20px; margin-bottom: 32px;
   }
-  .s1-num {
-    font-size: clamp(140px, 22vw, 260px);
-    font-weight: 900; line-height: 0.9; color: var(--white);
-    letter-spacing: -0.05em;
-    text-shadow: 0 0 80px rgba(91,63,248,0.9), 0 0 160px rgba(91,63,248,0.4);
-    margin-bottom: 8px;
+  .ep-title {
+    font-size: clamp(28px, 4vw, 58px); font-weight: 900; line-height: 1.1;
+    color: var(--white); letter-spacing: -0.02em; max-width: 900px; margin-bottom: 20px;
   }
-  .s1-word {
-    font-size: clamp(36px, 5vw, 68px);
-    font-weight: 900; letter-spacing: -0.02em; color: var(--white); margin-bottom: 24px;
-  }
-  .s1-sub {
-    font-size: clamp(14px, 1.4vw, 18px); color: var(--muted); letter-spacing: 0.01em;
+  .ep-title em { color: var(--purple); font-style: normal; }
+  .ep-hook {
+    font-size: clamp(14px, 1.5vw, 20px); color: var(--muted);
+    max-width: 680px; line-height: 1.6;
   }
 
-  /* ══════════════════════════════
-     SLIDE 2 — CONTRASTE
-  ══════════════════════════════ */
-  .s2 { gap: 36px; }
-  .s2-title {
-    font-size: clamp(22px, 2.8vw, 40px); font-weight: 900;
-    letter-spacing: -0.01em; text-align: center;
-  }
-  .s2-title .bad  { color: var(--red); }
-  .s2-title .arr  { color: var(--dim); margin: 0 16px; }
-  .s2-title .good { color: var(--green); }
-  .s2-cards {
-    display: grid; grid-template-columns: 1fr 56px 1fr;
-    align-items: stretch; width: 100%; max-width: 980px;
-  }
-  .s2-col {
-    border-radius: 20px; padding: 40px 36px;
-    display: flex; flex-direction: column; gap: 20px;
-  }
-  .s2-col.bad  { background: rgba(248,113,113,0.07); border: 2px solid rgba(248,113,113,0.3); }
-  .s2-col.good { background: rgba(74,222,128,0.07);  border: 2px solid rgba(74,222,128,0.3); }
-  .s2-sign { font-size: 36px; }
-  .s2-bio {
-    font-size: clamp(18px, 2.1vw, 28px); font-weight: 700;
-    font-style: italic; line-height: 1.45; flex: 1;
-  }
-  .s2-col.bad  .s2-bio { color: #fca5a5; }
-  .s2-col.good .s2-bio { color: #86efac; }
-  .s2-label { font-size: 11px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; }
-  .s2-col.bad  .s2-label { color: rgba(248,113,113,0.5); }
-  .s2-col.good .s2-label { color: rgba(74,222,128,0.5); }
-  .s2-arr { display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--dim); }
-
-  /* ══════════════════════════════
-     SLIDE 3 — MÉTODO
-  ══════════════════════════════ */
-  .s3 { gap: 40px; }
-  .s3-title {
-    font-size: clamp(20px, 2.5vw, 34px); font-weight: 800;
-    text-align: center; color: var(--muted); letter-spacing: 0.01em;
-  }
-  .s3-title span { color: var(--white); }
-  .s3-cards { display: flex; gap: 20px; width: 100%; max-width: 1000px; }
-  .s3-card {
-    flex: 1; min-height: 240px; background: var(--card); border: 1px solid var(--border);
-    border-radius: 20px; padding: 32px 28px;
-    display: flex; flex-direction: column; justify-content: space-between;
-    position: relative; overflow: hidden; transition: border-color 0.2s, transform 0.2s;
-  }
-  .s3-card:hover { border-color: rgba(91,63,248,0.5); transform: translateY(-2px); }
-  .s3-card::before {
-    content: attr(data-n); position: absolute; top: -10px; right: 16px;
-    font-size: 96px; font-weight: 900; color: var(--purple);
-    opacity: 0.12; line-height: 1; letter-spacing: -0.04em; pointer-events: none;
-  }
-  .s3-emoji { font-size: 40px; margin-bottom: 12px; }
-  .s3-kw { font-size: clamp(18px, 2vw, 26px); font-weight: 800; color: var(--white); line-height: 1.3; }
-  .s3-num {
-    font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--purple); opacity: 0.7; margin-top: 16px;
-  }
-
-  /* ══════════════════════════════
-     SLIDE 4 — AÇÃO
-  ══════════════════════════════ */
-  .s4 {
-    background:
-      radial-gradient(ellipse 55% 50% at 50% 55%, rgba(91,63,248,0.15) 0%, transparent 70%),
-      var(--bg);
-    text-align: center; gap: 20px;
-  }
-  .s4-icon { font-size: clamp(48px, 7vw, 80px); }
-  .s4-main {
-    font-size: clamp(40px, 6vw, 88px); font-weight: 900;
-    line-height: 1.05; letter-spacing: -0.03em; color: var(--white);
-  }
-  .s4-main span { color: var(--purple); }
-  .s4-formula { font-size: clamp(14px, 1.6vw, 20px); color: var(--muted); margin-top: 8px; }
-  .s4-formula b { color: var(--white); }
-
-  /* ══════════════════════════════
-     SLIDE 5 — LOGOS48
-  ══════════════════════════════ */
+  /* ── S5 LOGOS48 (fixo) ── */
   .s5 {
     background:
       radial-gradient(ellipse 65% 55% at 50% 45%, rgba(74,222,128,0.1) 0%, transparent 65%),
@@ -149,28 +61,20 @@
       var(--bg);
     text-align: center; gap: 16px;
   }
-  .s5-label {
-    font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--muted);
-  }
+  .s5-label { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
   .s5-kw {
-    font-size: clamp(72px, 12vw, 160px); font-weight: 900;
-    line-height: 1; letter-spacing: 0.04em; color: var(--green);
+    font-size: clamp(72px, 12vw, 160px); font-weight: 900; line-height: 1;
+    letter-spacing: 0.04em; color: var(--green);
     text-shadow: 0 0 60px rgba(74,222,128,0.6), 0 0 120px rgba(74,222,128,0.25);
   }
   .s5-desc { font-size: clamp(15px, 1.5vw, 20px); color: var(--muted); max-width: 560px; line-height: 1.6; }
-  .s5-desc b { color: var(--white); }
   .s5-pill {
-    display: inline-block; margin-top: 8px;
-    background: var(--purple); color: #fff;
+    display: inline-block; margin-top: 8px; background: var(--purple); color: #fff;
     font-size: 13px; font-weight: 700; letter-spacing: 0.04em;
-    padding: 9px 24px; border-radius: 24px;
-    box-shadow: 0 0 30px rgba(91,63,248,0.4);
+    padding: 9px 24px; border-radius: 24px; box-shadow: 0 0 30px rgba(91,63,248,0.4);
   }
 
-  /* ══════════════════════════════
-     NAV
-  ══════════════════════════════ */
+  /* ── NAV (fixo) ── */
   .nav {
     position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
     display: flex; align-items: center; gap: 20px; z-index: 100;
@@ -178,9 +82,8 @@
     border-radius: 40px; padding: 10px 22px; backdrop-filter: blur(14px);
   }
   .nav-btn {
-    width: 36px; height: 36px; background: transparent;
-    border: 1px solid var(--border); border-radius: 50%;
-    color: var(--white); font-size: 16px; cursor: pointer;
+    width: 36px; height: 36px; background: transparent; border: 1px solid var(--border);
+    border-radius: 50%; color: var(--white); font-size: 16px; cursor: pointer;
     display: flex; align-items: center; justify-content: center; transition: all 0.2s;
   }
   .nav-btn:hover:not(:disabled) { background: var(--pglow); border-color: var(--purple); }
@@ -190,70 +93,150 @@
   .dot.active { background: var(--purple); width: 22px; border-radius: 4px; }
   .dot.visited { background: var(--p2); opacity: 0.35; }
   .nav-counter { font-size: 12px; font-weight: 600; color: var(--muted); min-width: 40px; text-align: center; }
+
+  /* ── S2: TRIÂNGULO ── */
+  .s2 { gap: 0; }
+  .s2-label-top {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 40px;
+  }
+  .tri-wrap {
+    position: relative; width: 560px; height: 420px;
+  }
+  .tri-item {
+    position: absolute; display: flex; flex-direction: column; align-items: center; gap: 10px;
+    text-align: center;
+  }
+  .tri-item .icon { font-size: 44px; }
+  .tri-item .name {
+    font-size: 18px; font-weight: 800; letter-spacing: 0.01em;
+  }
+  .tri-item .desc { font-size: 12px; color: var(--muted); }
+  .tri-A { top: 0; left: 50%; transform: translateX(-50%); }
+  .tri-B { bottom: 20px; left: 0; }
+  .tri-C { bottom: 20px; right: 0; }
+  .tri-A .name { color: var(--purple); }
+  .tri-B .name { color: var(--yellow); }
+  .tri-C .name { color: var(--green); }
+  .tri-center {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -30%);
+    font-size: 13px; color: var(--muted); text-align: center; line-height: 1.6;
+    max-width: 180px;
+  }
+  .tri-center b { color: var(--white); display: block; font-size: 15px; margin-bottom: 4px; }
+  /* linhas SVG desenhadas no HTML */
+
+  /* ── S3: CALENDÁRIO SEMANAL ── */
+  .s3 { gap: 36px; }
+  .s3-title {
+    font-size: clamp(18px, 2.2vw, 30px); font-weight: 800;
+    color: var(--muted); text-align: center;
+  }
+  .s3-title span { color: var(--white); }
+  .week-grid { display: flex; gap: 12px; width: 100%; max-width: 900px; }
+  .day-card {
+    flex: 1; border-radius: 14px; padding: 18px 12px;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    border: 1px solid var(--border);
+  }
+  .day-name { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .day-emoji { font-size: 26px; }
+  .day-type { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+  .day-edu  { background: rgba(91,63,248,0.1);  border-color: rgba(91,63,248,0.3);  }
+  .day-edu  .day-type { color: var(--p2); }
+  .day-prov { background: rgba(251,191,36,0.08); border-color: rgba(251,191,36,0.3); }
+  .day-prov .day-type { color: var(--yellow); }
+  .day-ofr  { background: rgba(74,222,128,0.08); border-color: rgba(74,222,128,0.3); }
+  .day-ofr  .day-type { color: var(--green); }
+  .day-rest { background: transparent; border-color: rgba(255,255,255,0.04); opacity: 0.4; }
+  .day-rest .day-type { color: var(--dim); }
+
+  /* ── S4: PERGUNTA ESPELHO ── */
+  .s4 {
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 50%, rgba(91,63,248,0.1) 0%, transparent 65%),
+      var(--bg);
+    gap: 0; text-align: center;
+  }
+  .mirror-q {
+    font-size: clamp(22px, 3vw, 44px); font-weight: 900; color: var(--white);
+    letter-spacing: -0.02em; line-height: 1.2; max-width: 820px;
+  }
+  .mirror-div {
+    width: 60px; height: 2px; background: var(--dim);
+    margin: 28px auto; border-radius: 2px;
+  }
+  .mirror-a {
+    font-size: clamp(22px, 3vw, 44px); font-weight: 900; color: var(--muted);
+    letter-spacing: -0.02em; line-height: 1.2; max-width: 820px;
+  }
+  .mirror-hint { font-size: 14px; color: var(--dim); margin-top: 20px; }
+  
 </style>
 </head>
 <body>
 
-  <!-- SLIDE 1 — CAPA -->
+
+  <!-- S1 CAPA -->
   <div class="slide s1 active">
-    <div class="s1-badge">1 Minuto de Aula &nbsp;·&nbsp; EP 02 / 10</div>
-    <div class="s1-num">3</div>
-    <div class="s1-word">tipos.</div>
-    <div class="s1-sub">Só um deles traz cliente. Você sabe qual é?</div>
+    <div class="ep-badge">1 Minuto de Aula &nbsp;·&nbsp; EP 02 / 10</div>
+    <h1 class="ep-title">Por que seu conteúdo<br>não gera <em>cliente</em></h1>
+    <p class="ep-hook">Você posta, posta, posta. E ninguém compra. Exato.</p>
   </div>
 
-  <!-- SLIDE 2 — CONTRASTE -->
+  <!-- S2 TRIÂNGULO -->
   <div class="slide s2">
-    <div class="s2-title">
-      <span class="bad">Entretém</span>
-      <span class="arr">→</span>
-      <span class="good">Converte</span>
-    </div>
-    <div class="s2-cards">
-      <div class="s2-col bad">
-        <div class="s2-sign">😴</div>
-        <div class="s2-bio">"Dica rápida: postar cedo ajuda o alcance!"<br>300 curtidas. 0 clientes.</div>
-        <div class="s2-label">Posta. Posta. Posta. Ninguém compra.</div>
+    <div class="s2-label-top">O mix que todo negócio precisa</div>
+    <div class="tri-wrap">
+      <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 560 420">
+        <line x1="280" y1="80" x2="80" y2="370" stroke="rgba(255,255,255,0.07)" stroke-width="1.5"/>
+        <line x1="280" y1="80" x2="480" y2="370" stroke="rgba(255,255,255,0.07)" stroke-width="1.5"/>
+        <line x1="80" y1="370" x2="480" y2="370" stroke="rgba(255,255,255,0.07)" stroke-width="1.5"/>
+      </svg>
+      <div class="tri-item tri-A">
+        <div class="icon">📚</div>
+        <div class="name">Educativo</div>
+        <div class="desc">mostra competência</div>
       </div>
-      <div class="s2-arr">→</div>
-      <div class="s2-col good">
-        <div class="s2-sign">💰</div>
-        <div class="s2-bio">"Esse erro de posicionamento afastou 3 clientes em 1 semana — veja o antes e depois."</div>
-        <div class="s2-label">O cliente reconhece o problema dele.</div>
+      <div class="tri-item tri-B">
+        <div class="icon">🏆</div>
+        <div class="name">Prova Social</div>
+        <div class="desc">gera confiança</div>
+      </div>
+      <div class="tri-item tri-C">
+        <div class="icon">📣</div>
+        <div class="name">Oferta</div>
+        <div class="desc">convida a comprar</div>
+      </div>
+      <div class="tri-center">
+        <b>Só curiosidade</b>
+        não paga boleto.
       </div>
     </div>
   </div>
 
-  <!-- SLIDE 3 — MÉTODO -->
+  <!-- S3 CALENDÁRIO -->
   <div class="slide s3">
-    <div class="s3-title"><span>Os 3 tipos</span> que todo negócio precisa misturar</div>
-    <div class="s3-cards">
-      <div class="s3-card" data-n="1">
-        <div class="s3-emoji">📚</div>
-        <div class="s3-kw">Educativo<br>— mostra competência</div>
-        <div class="s3-num">01</div>
-      </div>
-      <div class="s3-card" data-n="2">
-        <div class="s3-emoji">🏆</div>
-        <div class="s3-kw">Prova Social<br>— gera confiança</div>
-        <div class="s3-num">02</div>
-      </div>
-      <div class="s3-card" data-n="3">
-        <div class="s3-emoji">📣</div>
-        <div class="s3-kw">Oferta<br>— convida a comprar</div>
-        <div class="s3-num">03</div>
-      </div>
+    <div class="s3-title"><span>Uma semana</span> que equilibra os três</div>
+    <div class="week-grid">
+      <div class="day-card day-edu"><div class="day-name">SEG</div><div class="day-emoji">📚</div><div class="day-type">EDUCATIVO</div></div>
+      <div class="day-card day-prov"><div class="day-name">TER</div><div class="day-emoji">🏆</div><div class="day-type">PROVA</div></div>
+      <div class="day-card day-ofr"><div class="day-name">QUA</div><div class="day-emoji">📣</div><div class="day-type">OFERTA</div></div>
+      <div class="day-card day-edu"><div class="day-name">QUI</div><div class="day-emoji">📚</div><div class="day-type">EDUCATIVO</div></div>
+      <div class="day-card day-prov"><div class="day-name">SEX</div><div class="day-emoji">🏆</div><div class="day-type">PROVA</div></div>
+      <div class="day-card day-rest"><div class="day-name">SÁB</div><div class="day-emoji">—</div><div class="day-type">REELS</div></div>
+      <div class="day-card day-rest"><div class="day-name">DOM</div><div class="day-emoji">—</div><div class="day-type">STORIES</div></div>
     </div>
   </div>
 
-  <!-- SLIDE 4 — AÇÃO -->
+  <!-- S4 PERGUNTA ESPELHO -->
   <div class="slide s4">
-    <div class="s4-icon">📋</div>
-    <div class="s4-main">Mistura<br><span>os três.</span></div>
-    <div class="s4-formula"><b>Qual tipo</b> você está ignorando <b>no seu calendário?</b></div>
+    <div class="mirror-q">Quantos posts você fez esse mês?</div>
+    <div class="mirror-div"></div>
+    <div class="mirror-a">E quantos clientes vieram do Instagram?</div>
+    <div class="mirror-hint">Se a resposta incomodou, é aí que está o problema.</div>
   </div>
 
-  <!-- SLIDE 5 — LOGOS48 -->
   <div class="slide s5">
     <div class="s5-label">🔍 diagnóstico gratuito de demonstração · 48 horas</div>
     <div class="s5-kw">LOGOS48</div>
@@ -261,7 +244,6 @@
     <span class="s5-pill">Agência Logos</span>
   </div>
 
-  <!-- NAV -->
   <div class="nav">
     <button class="nav-btn" id="prevBtn" onclick="navigate(-1)" disabled>←</button>
     <div class="nav-dots" id="dots"></div>
